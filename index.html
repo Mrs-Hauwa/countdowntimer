@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan countdown</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<h1 id="rmn"><b>Ramadan Countdown</h1>
+<body>
+    <!-- Display the countdown timer in an element -->
+
+    <p id="ctd"></p>
+    <img> 
+    <img src="/week6i/ramdan.png" class="feature-img1">
+
+    <style>
+        .feature-img1{
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    margin-top: 30px;
+ 
+        }
+    </style>
+<script>
+
+    // Get element by ID
+const ctd = document.getElementById("ctd")
+console.log(ctd)
+ctd.style.color = "white"
+ctd.style.fontSize = "90px"
+ctd.style.backgroundColor = "#be1558"
+
+ctd.style.marginLeft = "200px"
+
+const rmn = document.getElementById("rmn")
+rmn.style.fontSize = "50px"
+rmn.style.color = "white"
+
+// Set the date we're counting down to
+
+var countDownDate = new Date("March 11, 2024 18:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+// Get today's date and time
+var now = new Date().getTime();
+
+// Find the distance between now and the count down date
+var distance = countDownDate - now;
+
+// Time calculations for days, hours, minutes and seconds
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+// Display the result in the element with id="demo"
+document.getElementById("ctd").innerHTML = days + "d " + hours + "h "
++ minutes + "m " + seconds + "s ";
+// If the count down is finished, write some text
+if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("ctd").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+</script>
+
+</body>
+</html>
